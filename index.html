@@ -115,7 +115,7 @@
             margin-bottom: 15px;
         }
 
-        /* Helt reklamfria spelramar */
+        /* Reklamfria spelramar */
         .iframe-wrapper {
             position: relative;
             overflow: hidden;
@@ -153,19 +153,18 @@
         #jumpscare-overlay img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Täcker hela skärmen för maximal skräckeffekt */
+            object-fit: cover;
             animation: ultraShake 0.05s infinite;
-            filter: contrast(150%) saturate(200%) sepia(50%) hue-rotate(-50deg); /* Gör bilden mer glitchig och rödaktig */
+            filter: contrast(160%) saturate(220%) sepia(40%) hue-rotate(-50deg);
         }
 
-        /* Snabb, aggressiv skakning för jumpscaren */
         @keyframes ultraShake {
-            0% { transform: translate(5px, 5px) scale(1.05); }
-            20% { transform: translate(-5px, -3px) scale(1.0); }
-            40% { transform: translate(-7px, 5px) scale(1.08); }
-            60% { transform: translate(5px, -5px) scale(1.02); }
-            80% { transform: translate(-3px, 3px) scale(1.06); }
-            100% { transform: translate(4px, 4px) scale(1.0); }
+            0% { transform: translate(4px, 4px) scale(1.05); }
+            20% { transform: translate(-4px, -2px) scale(1.0); }
+            40% { transform: translate(-6px, 4px) scale(1.07); }
+            60% { transform: translate(4px, -4px) scale(1.02); }
+            80% { transform: translate(-2px, 2px) scale(1.05); }
+            100% { transform: translate(3px, 3px) scale(1.0); }
         }
 
         footer {
@@ -190,13 +189,13 @@
     <div class="admin-panel" id="admin-panel">
         <h3 style="margin-top:0; color:#fff;">SYSTEMKONTROLL</h3>
         <p style="color:#ccc; font-size:0.9rem;">Varning: Hög volym rekommenderas.</p>
-        <button class="jumpscare-btn" onclick="triggerJumpscare()">AKTIVERA FREEDYS ANFALL!</button>
+        <button class="jumpscare-btn" onclick="triggerJumpscare()">AKTIVERA FREDDYS ANFALL!</button>
     </div>
 
-    <!-- SPEL 1: FNaF 1 (Reklamfri Itch-version) -->
+    <!-- SPEL 1: FNaF 1 -->
     <div class="game-container">
         <h2>[LIVE-FEED] Five Nights at Freddy's</h2>
-        <p class="description">Håll koll på dörrarna och kamerorna. Fungerar bäst på dator.</p>
+        <p class="description">Håll koll på dörrarna och kamerorna. Fungerar både på dator och mobil.</p>
         <div class="iframe-wrapper">
             <iframe src="https://gamedistribution.com" allowfullscreen></iframe>
         </div>
@@ -204,10 +203,7 @@
 
     <!-- JUMPSCARE SYSTEM -->
     <div id="jumpscare-overlay">
-        <!-- Läskig, glitch-filtrerad Freddy bild -->
         <img src="https://wikimedia.org" alt="BOO!">
-        
-        <!-- Det äkta, officiella skrikljudet från FNaF 1 (XSCREAM.WAV) -->
         <audio id="scary-sound" src="https://siue.edu" preload="auto"></audio>
     </div>
 
@@ -223,7 +219,7 @@
             
             if (input === 'MelloOlof') {
                 adminPanel.style.display = 'block';
-                authBox.remove();
+                authBox.remove(); // Tar bort login-boxen helt så den inte ligger i vägen
             }
         }
 
@@ -233,14 +229,12 @@
             
             overlay.style.display = 'flex';
             
-            // Tvingar ljudet att spelas på max volym från början
             sound.currentTime = 0;
             sound.volume = 1.0;
             sound.play().catch(function(error) {
-                alert("Klicka på sidan en gång först så att webbläsaren tillåter ljud!");
+                console.log("Ljudet blockerades. Klicka på sidan först.");
             });
 
-            // Avbryter jumpscaren efter 1.8 sekunder (precis när skriket tar slut)
             setTimeout(function() {
                 overlay.style.display = 'none';
             }, 1800);
