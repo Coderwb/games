@@ -20,7 +20,7 @@
             transition: background 0.5s ease;
         }
 
-        /* Strömlöst läge - Aktiveras bara via admin */
+        /* Strömlöst läge */
         body.blackout {
             background: #000000 !important;
         }
@@ -69,7 +69,7 @@
             font-size: 1rem;
         }
 
-        /* Den dolda admin-panelen */
+        /* Admin-panel */
         .admin-panel {
             display: none;
             margin: 15px auto;
@@ -100,7 +100,6 @@
         }
         .jumpscare-btn:hover { background: #b30000; }
 
-        /* Strömknappen inuti Admin-panelen */
         .power-btn {
             background: #333;
             color: #00ff00;
@@ -207,21 +206,17 @@
         <input type="password" id="password-input" oninput="checkPassword()" placeholder="Ange lösenord...">
     </div>
 
-    <!-- ADMIN PANEL (Bara synlig efter lyckad inloggning) -->
+    <!-- ADMIN PANEL -->
     <div class="admin-panel" id="admin-panel">
         <h3 style="margin-top:0; color:#fff;">SYSTEMKONTROLL ACTIVE</h3>
-        
-        <!-- Jumpscare-knapp -->
         <button class="admin-btn jumpscare-btn" onclick="triggerJumpscare()">AKTIVERA CHICAS ANFALL!</button>
-        
-        <!-- Strömknapp (Endast tillgänglig för admin) -->
         <button class="admin-btn power-btn" id="power-button" onclick="togglePower()">SABOTERA STRÖMMEN: PÅ</button>
     </div>
 
     <!-- SPEL 1: FNaF 1 -->
     <div class="game-container">
         <h2>[LIVE-FEED 01] Five Nights at Freddy's</h2>
-        <p class="description">Överlev natten på pizzerian. Spela direkt på skärmen.</p>
+        <p class="description">Överlev natten på pizzerian. Spelet laddas automatiskt i rutan.</p>
         <div class="iframe-wrapper">
             <iframe src="https://gamaverse.com" allowfullscreen></iframe>
         </div>
@@ -236,21 +231,17 @@
         </div>
     </div>
 
-    <!-- JUMPSCARE SYSTEM (Säkrade filer direkt från rådata) -->
+    <!-- JUMPSCARE SYSTEM (ÄNDRAT TILL CHICA.JPG) -->
     <div id="jumpscare-overlay">
-        <!-- Säker, högupplöst och permanent länk till Withered Chicas ansikte -->
-        <img src="https://githubusercontent.com" alt="Withered Chica Jumpscare" onerror="fallbackImage(this)">
-        
-        <!-- Garanterad och stabil skräck-ljudlänk -->
-        <audio id="scary-sound" src="https://githubusercontent.com" preload="auto"></audio>
+        <img src="chica.jpg" alt="Withered Chica Jumpscare">
+        <audio id="scary-sound" src="scary.mp3" preload="auto"></audio>
     </div>
 
     <footer>
-        <p>SYSTEMSTATUS: REKLAMFRI SECURE-TUNNEL // SERVRAR: SÄKRADE</p>
+        <p>SYSTEMSTATUS: REKLAMFRI SECURE-TUNNEL // LÖSENORD: AKTIVT</p>
     </footer>
 
     <script>
-        // Strömknapps-funktion (Körs bara via adminpanelen nu)
         function togglePower() {
             const body = document.body;
             const btn = document.getElementById('power-button');
@@ -262,7 +253,6 @@
             }
         }
 
-        // Lösenordskontroll (MelloOlof)
         function checkPassword() {
             const input = document.getElementById('password-input').value;
             const adminPanel = document.getElementById('admin-panel');
@@ -274,28 +264,21 @@
             }
         }
 
-        // Jumpscare-funktion
         function triggerJumpscare() {
             const overlay = document.getElementById('jumpscare-overlay');
             const sound = document.getElementById('scary-sound');
             
             overlay.style.display = 'flex';
-            
             sound.currentTime = 0;
             sound.volume = 1.0;
             
             sound.play().catch(function(error) {
-                console.log("Klicka på skärmen en gång innan för att tillåta ljud.");
+                console.log("Ljudet kräver ett skärmklick först.");
             });
 
             setTimeout(function() {
                 overlay.style.display = 'none';
             }, 1800);
-        }
-
-        // Reserv-bild ifall förrådet flyttas i framtiden
-        function fallbackImage(img) {
-            img.src = "https://wikimedia.org";
         }
     </script>
 
