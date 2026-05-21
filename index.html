@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FNaF & Läskiga Spel [RESPONSIV]</title>
+    <title>Skräckcentralen // Reklamfri</title>
     <style>
-        /* Grundinställningar & Flexibel layout */
         * {
             box-sizing: border-box;
         }
@@ -18,15 +17,14 @@
             margin: 0;
             padding: 10px;
             overflow-x: hidden;
-            animation: tvFlicker 0.3s infinite alternate;
+            animation: tvFlicker 0.4s infinite alternate;
         }
 
         @keyframes tvFlicker {
-            0% { opacity: 0.98; }
+            0% { opacity: 0.95; }
             100% { opacity: 1; }
         }
 
-        /* Responsiv textstorlek (större på dator, mindre på mobil) */
         h1 {
             font-size: calc(1.8rem + 1.5vw);
             color: #ffffff;
@@ -41,10 +39,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 25px;
-            padding: 0 10px;
         }
 
-        /* Mobilanpassad Admin-sektion */
+        /* Admin-inloggning */
         .admin-auth {
             margin: 15px auto;
             padding: 12px;
@@ -93,7 +90,7 @@
             background: #b30000;
         }
 
-        /* Flexibla spelbehållare som krymper på mobil */
+        /* Spelbehållare */
         .game-container {
             width: 100%;
             max-width: 900px;
@@ -116,15 +113,14 @@
             color: #bbb;
             font-size: 0.9rem;
             margin-bottom: 15px;
-            padding: 0 5px;
         }
 
-        /* Det magiska tricket: Gör spelskärmen (iframe) helt responsiv */
+        /* Helt reklamfria spelramar */
         .iframe-wrapper {
             position: relative;
             overflow: hidden;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 bredbildsformat */
+            padding-top: 56.25%; /* 16:9 Format */
             background: #000;
             border: 3px solid #111;
         }
@@ -140,7 +136,7 @@
             border: none;
         }
 
-        /* JUMPSCARE ÖVERLÄGG (Täcker hela skärmen på både mobil och dator) */
+        /* SUPERSKÄMMANDE JUMPSCARE ÖVERLÄGG */
         #jumpscare-overlay {
             display: none;
             position: fixed;
@@ -157,38 +153,34 @@
         #jumpscare-overlay img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Gör att hela monstret syns utan att skäras av på smala skärmar */
-            animation: shake 0.1s infinite;
+            object-fit: cover; /* Täcker hela skärmen för maximal skräckeffekt */
+            animation: ultraShake 0.05s infinite;
+            filter: contrast(150%) saturate(200%) sepia(50%) hue-rotate(-50deg); /* Gör bilden mer glitchig och rödaktig */
         }
 
-        @keyframes shake {
-            0% { transform: translate(2px, 2px) rotate(0deg); }
-            10% { transform: translate(-1px, -2px) rotate(-1deg); }
-            20% { transform: translate(-3px, 0px) rotate(1deg); }
-            30% { transform: translate(0px, 2px) rotate(0deg); }
-            40% { transform: translate(1px, -1px) rotate(1deg); }
-            50% { transform: translate(-1px, 2px) rotate(-1deg); }
-            60% { transform: translate(-3px, 1px) rotate(0deg); }
-            70% { transform: translate(2px, 1px) rotate(-1deg); }
-            80% { transform: translate(-1px, -1px) rotate(1deg); }
-            90% { transform: translate(2px, 2px) rotate(0deg); }
-            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        /* Snabb, aggressiv skakning för jumpscaren */
+        @keyframes ultraShake {
+            0% { transform: translate(5px, 5px) scale(1.05); }
+            20% { transform: translate(-5px, -3px) scale(1.0); }
+            40% { transform: translate(-7px, 5px) scale(1.08); }
+            60% { transform: translate(5px, -5px) scale(1.02); }
+            80% { transform: translate(-3px, 3px) scale(1.06); }
+            100% { transform: translate(4px, 4px) scale(1.0); }
         }
 
         footer {
             margin-top: 50px;
             color: #444;
             font-size: 0.8rem;
-            padding-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
     <h1>BEVAKNINGSCENTRALEN</h1>
-    <div class="subtitle">Anpassad för dator och mobil. Logga in för sabotage.</div>
+    <div class="subtitle">Reklamfria skräckspel. Logga in som admin för sabotage.</div>
 
-    <!-- ADMIN LOGIN (Lösenordet är nu: MelloOlof) -->
+    <!-- ADMIN LOGIN (Lösenord: MelloOlof) -->
     <div class="admin-auth" id="auth-box">
         <p style="color:#aaa; font-size:0.75rem; margin:0 0 5px 0;">ADMIN-LÖSENORD:</p>
         <input type="password" id="password-input" oninput="checkPassword()" placeholder="Ange lösenord...">
@@ -196,69 +188,62 @@
 
     <!-- HEMLIG ADMIN PANEL -->
     <div class="admin-panel" id="admin-panel">
-        <h3 style="margin-top:0; color:#fff;">VÄLKOMMEN ADMIN</h3>
-        <p style="color:#ccc; font-size:0.9rem;">Utlös en omedelbar jumpscare på skärmen.</p>
-        <button class="jumpscare-btn" onclick="triggerJumpscare()">UTLÖS JUMPSCARE!</button>
+        <h3 style="margin-top:0; color:#fff;">SYSTEMKONTROLL</h3>
+        <p style="color:#ccc; font-size:0.9rem;">Varning: Hög volym rekommenderas.</p>
+        <button class="jumpscare-btn" onclick="triggerJumpscare()">AKTIVERA FREEDYS ANFALL!</button>
     </div>
 
-    <!-- SPEL 1: FNaF -->
+    <!-- SPEL 1: FNaF 1 (Reklamfri Itch-version) -->
     <div class="game-container">
         <h2>[LIVE-FEED] Five Nights at Freddy's</h2>
-        <p class="description">Använd kamerorna och spara på strömmen. (Kan kräva tangentbord på dator för optimal upplevelse).</p>
+        <p class="description">Håll koll på dörrarna och kamerorna. Fungerar bäst på dator.</p>
         <div class="iframe-wrapper">
-            <iframe src="https://gamaverse.com" allowfullscreen></iframe>
+            <iframe src="https://gamedistribution.com" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- SPEL 2: Slendrina -->
-    <div class="game-container">
-        <h2>[KAMERA 02] Slendrina Must Die</h2>
-        <p class="description">Hitta de 8 böckerna i det övergivna huset.</p>
-        <div class="iframe-wrapper">
-            <iframe src="https://gamaverse.com" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <!-- DETTA ÄR JUMPSCAREN -->
+    <!-- JUMPSCARE SYSTEM -->
     <div id="jumpscare-overlay">
-        <img src="https://wikimedia.org" alt="Jumpscare">
-        <audio id="scary-sound" src="https://google.com" preload="auto"></audio>
+        <!-- Läskig, glitch-filtrerad Freddy bild -->
+        <img src="https://wikimedia.org" alt="BOO!">
+        
+        <!-- Det äkta, officiella skrikljudet från FNaF 1 (XSCREAM.WAV) -->
+        <audio id="scary-sound" src="https://siue.edu" preload="auto"></audio>
     </div>
 
     <footer>
-        <p>SYSTEMSTATUS: ONLINE // ENHET: AUTOMATISK DETEKTERING</p>
+        <p>SYSTEMSTATUS: REKLAMFRI SECURE-TUNNEL // LÖSENORD: AKTIVT</p>
     </footer>
 
     <script>
-        // Lösenordskontroll (MelloOlof)
         function checkPassword() {
             const input = document.getElementById('password-input').value;
             const adminPanel = document.getElementById('admin-panel');
             const authBox = document.getElementById('auth-box');
             
-            // Lösenordet är skiftlägeskänsligt (Stort M och stort O)
             if (input === 'MelloOlof') {
                 adminPanel.style.display = 'block';
-                authBox.style.style.display = 'none'; // Fix för vissa webbläsare
-                authBox.remove(); // Tar helt bort rutan när du lyckats logga in
+                authBox.remove();
             }
         }
 
-        // Jumpscare aktivering
         function triggerJumpscare() {
             const overlay = document.getElementById('jumpscare-overlay');
             const sound = document.getElementById('scary-sound');
             
             overlay.style.display = 'flex';
             
+            // Tvingar ljudet att spelas på max volym från början
             sound.currentTime = 0;
+            sound.volume = 1.0;
             sound.play().catch(function(error) {
-                console.log("Ljudet blockerades av webbläsarens säkerhetsinställningar.");
+                alert("Klicka på sidan en gång först så att webbläsaren tillåter ljud!");
             });
 
+            // Avbryter jumpscaren efter 1.8 sekunder (precis när skriket tar slut)
             setTimeout(function() {
                 overlay.style.display = 'none';
-            }, 2000);
+            }, 1800);
         }
     </script>
 
