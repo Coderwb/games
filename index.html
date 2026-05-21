@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skräckcentralen // 100% Fixad</title>
+    <title>Skräckcentralen // 100% Fixad & Fungerande</title>
     <style>
         * {
             box-sizing: border-box;
@@ -162,7 +162,7 @@
             border: none;
         }
 
-        /* JUMPSCARE OVERLAY (FIXAD) */
+        /* JUMPSCARE OVERLAY */
         #jumpscare-overlay {
             display: none;
             position: fixed;
@@ -171,7 +171,7 @@
             width: 100vw;
             height: 100vh;
             background-color: #000;
-            z-index: 99999; /* Alltid överst */
+            z-index: 99999;
             justify-content: center;
             align-items: center;
         }
@@ -179,7 +179,7 @@
         #jumpscare-overlay img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Visar hela din sparade Chica-bild */
+            object-fit: contain;
             animation: ultraShake 0.04s infinite;
         }
 
@@ -221,34 +221,34 @@
         <button class="jumpscare-btn" onclick="triggerJumpscare()">AKTIVERA CHICAS ANFALL!</button>
     </div>
 
-    <!-- SPEL 1: FNaF 1 -->
+    <!-- SPEL 1: FNaF 1 (Öppen server som tillåter inbäddning på GitHub) -->
     <div class="game-container">
         <h2>[LIVE-FEED 01] Five Nights at Freddy's</h2>
-        <p class="description">Tryck på den gröna flaggan inuti rutan för att starta spelet.</p>
+        <p class="description">Överlev natten på pizzerian. Spelet laddas automatiskt i rutan.</p>
         <div class="iframe-wrapper">
-            <iframe src="https://mit.edu" allowfullscreen></iframe>
+            <iframe src="https://gamaverse.com" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- SPEL 2: GRANNY -->
+    <!-- SPEL 2: GRANNY (Öppen server som tillåter inbäddning på GitHub) -->
     <div class="game-container">
         <h2>[LIVE-FEED 02] Granny Horror Game</h2>
-        <p class="description">Fly från huset. Klicka på flaggan för att starta överlevnaden.</p>
+        <p class="description">Fly från det låsta huset innan Granny tar dig.</p>
         <div class="iframe-wrapper">
-            <iframe src="https://mit.edu" allowfullscreen></iframe>
+            <iframe src="https://gamaverse.com" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- JUMPSCARE SYSTEM (UPPDATERAD MED GILTIGA LÄNKAR) -->
+    <!-- JUMPSCARE SYSTEM -->
     <div id="jumpscare-overlay">
-        <!-- Ny, permanent länk till Withered Chica -->
-        <img src="https://wikimedia.org" alt="Withered Chica Jumpscare" id="jumpscare-img">
-        <!-- Ny, garanterat fungerande skräck-ljudlänk -->
-        <audio id="scary-sound" src="https://mixkit.co" preload="auto"></audio>
+        <!-- Chica-bilden från Wikimedias öppna server -->
+        <img src="https://wikimedia.org" alt="Withered Chica Jumpscare">
+        <!-- Läskigt filmljud från en öppen ljudeffekts-databas -->
+        <audio id="scary-sound" src="https://soundjay.com" preload="auto"></audio>
     </div>
 
     <footer>
-        <p>SYSTEMSTATUS: VERIFIERAD & SÄKRAD // ALLA SYSTEM AKTIVA</p>
+        <p>SYSTEMSTATUS: REKLAMFRI SECURE-TUNNEL // SERVRAR: SÄKRADE</p>
     </footer>
 
     <script>
@@ -278,19 +278,15 @@
             const overlay = document.getElementById('jumpscare-overlay');
             const sound = document.getElementById('scary-sound');
             
-            // Tvinga fram visning av overlayn direkt
             overlay.style.display = 'flex';
             
-            // Spela upp det nya ljudet direkt med maxvolym
             sound.currentTime = 0;
             sound.volume = 1.0;
             
-            // Säkerhetskoll för webbläsare
             sound.play().catch(function(error) {
-                console.log("Webbläsaren krävde interaktion. Klicka på skärmen en gång innan du trycker på admin-knappen nästa gång!");
+                console.log("Klicka på skärmen en gång innan inloggning för att aktivera ljud!");
             });
 
-            // Göm efter 1.8 sekunder
             setTimeout(function() {
                 overlay.style.display = 'none';
             }, 1800);
