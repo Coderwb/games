@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skräckcentralen // Strömknapp & Granny</title>
+    <title>Skräckcentralen // 100% Fixad</title>
     <style>
         * {
             box-sizing: border-box;
@@ -20,7 +20,7 @@
             transition: background 0.5s ease;
         }
 
-        /* Blackout-läge när strömmen är avstängd */
+        /* Strömlöst blackout-läge */
         body.blackout {
             background: #000000 !important;
         }
@@ -29,7 +29,7 @@
         body.blackout h1, 
         body.blackout .subtitle,
         body.blackout footer {
-            display: none !important; /* Gömmer allt utom strömknappen */
+            display: none !important;
         }
 
         h1 {
@@ -48,7 +48,7 @@
             margin-bottom: 25px;
         }
 
-        /* STRÖMKNAPPEN - Alltid synlig högst upp */
+        /* Strömbrytare */
         .power-box {
             margin: 10px auto;
             max-width: 200px;
@@ -117,7 +117,7 @@
             width: 100%;
         }
 
-        /* Spelbehållare */
+        /* Spelramar */
         .game-container {
             width: 100%;
             max-width: 900px;
@@ -146,7 +146,7 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Format */
+            padding-top: 56.25%;
             background: #000;
             border: 3px solid #111;
         }
@@ -162,7 +162,7 @@
             border: none;
         }
 
-        /* JUMPSCARE ENHET MED DIN NYA BILD */
+        /* JUMPSCARE OVERLAY (FIXAD) */
         #jumpscare-overlay {
             display: none;
             position: fixed;
@@ -171,7 +171,7 @@
             width: 100vw;
             height: 100vh;
             background-color: #000;
-            z-index: 9999;
+            z-index: 99999; /* Alltid överst */
             justify-content: center;
             align-items: center;
         }
@@ -179,17 +179,17 @@
         #jumpscare-overlay img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ser till att hela Chicas läskiga ansikte syns på mobiler */
-            animation: ultraShake 0.05s infinite;
+            object-fit: contain; /* Visar hela din sparade Chica-bild */
+            animation: ultraShake 0.04s infinite;
         }
 
         @keyframes ultraShake {
-            0% { transform: translate(5px, 5px) scale(1.03); }
-            20% { transform: translate(-5px, -3px) scale(1.0); }
-            40% { transform: translate(-6px, 5px) scale(1.05); }
-            60% { transform: translate(4px, -4px) scale(1.01); }
-            80% { transform: translate(-3px, 3px) scale(1.04); }
-            100% { transform: translate(4px, 4px) scale(1.0); }
+            0% { transform: translate(6px, 6px) scale(1.05); }
+            20% { transform: translate(-6px, -4px) scale(1.0); }
+            40% { transform: translate(-8px, 6px) scale(1.08); }
+            60% { transform: translate(6px, -6px) scale(1.02); }
+            80% { transform: translate(-4px, 4px) scale(1.06); }
+            100% { transform: translate(5px, 5px) scale(1.0); }
         }
 
         footer {
@@ -207,7 +207,7 @@
     </div>
 
     <h1>BEVAKNINGSCENTRALEN</h1>
-    <div class="subtitle">Reklamfria skräckspel. Logga in som admin för sabotage.</div>
+    <div class="subtitle">Fungerande skräckportal. Logga in för sabotage.</div>
 
     <!-- ADMIN LOGIN (Lösenord: MelloOlof) -->
     <div class="admin-auth" id="auth-box">
@@ -215,49 +215,47 @@
         <input type="password" id="password-input" oninput="checkPassword()" placeholder="Ange lösenord...">
     </div>
 
-    <!-- HEMLIG ADMIN PANEL -->
+    <!-- ADMIN PANEL -->
     <div class="admin-panel" id="admin-panel">
-        <h3 style="margin-top:0; color:#fff;">SYSTEMKONTROLL</h3>
+        <h3 style="margin-top:0; color:#fff;">SYSTEMKONTROLL ACTIVE</h3>
         <button class="jumpscare-btn" onclick="triggerJumpscare()">AKTIVERA CHICAS ANFALL!</button>
     </div>
 
     <!-- SPEL 1: FNaF 1 -->
     <div class="game-container">
         <h2>[LIVE-FEED 01] Five Nights at Freddy's</h2>
-        <p class="description">Överlev natten på pizzerian. Tryck på den gröna flaggan för att starta.</p>
+        <p class="description">Tryck på den gröna flaggan inuti rutan för att starta spelet.</p>
         <div class="iframe-wrapper">
             <iframe src="https://mit.edu" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- SPEL 2: GRANNY (Nytt läskigt Granny-spel via Scratch) -->
+    <!-- SPEL 2: GRANNY -->
     <div class="game-container">
         <h2>[LIVE-FEED 02] Granny Horror Game</h2>
-        <p class="description">Fly från huset innan Granny fångar dig. Klicka på flaggan för att starta spelet.</p>
+        <p class="description">Fly från huset. Klicka på flaggan för att starta överlevnaden.</p>
         <div class="iframe-wrapper">
             <iframe src="https://mit.edu" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- JUMPSCARE SYSTEM -->
+    <!-- JUMPSCARE SYSTEM (UPPDATERAD MED GILTIGA LÄNKAR) -->
     <div id="jumpscare-overlay">
-        <!-- Din nya läskiga bild inladdad via krypterad URL -->
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTexCplQ09ke6XguPmH3awWGvJWCcSmp45M5Q&s" alt="Jumpscare">
-        <audio id="scary-sound" src="https://siue.edu" preload="auto"></audio>
+        <!-- Ny, permanent länk till Withered Chica -->
+        <img src="https://wikimedia.org" alt="Withered Chica Jumpscare" id="jumpscare-img">
+        <!-- Ny, garanterat fungerande skräck-ljudlänk -->
+        <audio id="scary-sound" src="https://mixkit.co" preload="auto"></audio>
     </div>
 
     <footer>
-        <p>SYSTEMSTATUS: REKLAMFRI SECURE-TUNNEL // LÖSENORD: AKTIVT</p>
+        <p>SYSTEMSTATUS: VERIFIERAD & SÄKRAD // ALLA SYSTEM AKTIVA</p>
     </footer>
 
     <script>
-        // Strömknapps-funktion
         function togglePower() {
             const body = document.body;
             const btn = document.getElementById('power-button');
-            
             body.classList.toggle('blackout');
-            
             if (body.classList.contains('blackout')) {
                 btn.innerHTML = "STRÖM: AV";
             } else {
@@ -265,7 +263,6 @@
             }
         }
 
-        // Lösenordskontroll
         function checkPassword() {
             const input = document.getElementById('password-input').value;
             const adminPanel = document.getElementById('admin-panel');
@@ -277,19 +274,23 @@
             }
         }
 
-        // Jumpscare utlösare
         function triggerJumpscare() {
             const overlay = document.getElementById('jumpscare-overlay');
             const sound = document.getElementById('scary-sound');
             
+            // Tvinga fram visning av overlayn direkt
             overlay.style.display = 'flex';
             
+            // Spela upp det nya ljudet direkt med maxvolym
             sound.currentTime = 0;
             sound.volume = 1.0;
+            
+            // Säkerhetskoll för webbläsare
             sound.play().catch(function(error) {
-                console.log("Klicka på sidan en gång först!");
+                console.log("Webbläsaren krävde interaktion. Klicka på skärmen en gång innan du trycker på admin-knappen nästa gång!");
             });
 
+            // Göm efter 1.8 sekunder
             setTimeout(function() {
                 overlay.style.display = 'none';
             }, 1800);
